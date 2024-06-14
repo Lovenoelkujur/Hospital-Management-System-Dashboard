@@ -17,7 +17,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchAppointment = async() => {
       try {
-        const { data } = await axios.get("http://localhost:9000/api/v1/appointment/getall",
+        const { data } = await axios.get("https://hospital-management-system-backend-edeu.onrender.com/api/v1/appointment/getall",
           {withCredentials : true}
         );
         setAppointments(data.appointment)
@@ -35,7 +35,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchDoctor = async() => {
       try {
-        const { data } = await axios.get("http://localhost:9000/api/v1/user/doctors", 
+        const { data } = await axios.get("https://hospital-management-system-backend-edeu.onrender.com/api/v1/user/doctors", 
           {withCredentials : true}
         );
         setDoctors(data.doctor); 
