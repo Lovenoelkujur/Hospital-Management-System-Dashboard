@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 const AddNewAdmin = () => {
 
-  const {isAuthenticated, setIsAuthenticated} = useContext(Context);
+  const {isAuthenticated } = useContext(Context);
 
   // State
   const [firstName, setFirstName] = useState("");
@@ -34,7 +34,6 @@ const AddNewAdmin = () => {
         }
       );
       toast.success(response.data.message);
-      setIsAuthenticated(true);
       navigateTo("/");
     } 
     catch (error) {
