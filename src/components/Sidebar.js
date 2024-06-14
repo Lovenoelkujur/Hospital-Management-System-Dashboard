@@ -47,7 +47,7 @@ const Sidebar = () => {
   // Handle Logout
   const handleLogout = async () => {
 
-    await axios.get("http://localhost:9000/api/v1/user/admin/logout", {
+    await axios.get("https://hospital-management-system-backend-edeu.onrender.com/api/v1/user/admin/logout", {
         withCredentials : true,
     }).then(res => {
         toast.success(res.data.message);
