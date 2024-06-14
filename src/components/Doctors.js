@@ -15,7 +15,7 @@ const Doctors = () => {
         const { data } = await axios.get("http://localhost:9000/api/v1/user/doctors", 
           {withCredentials : true}
         );
-        setDoctors(data.doctor); // check this data doctors || doctor
+        setDoctors(data.doctor); 
       } 
       catch (error) {
         toast.error(error.response.data.message);
