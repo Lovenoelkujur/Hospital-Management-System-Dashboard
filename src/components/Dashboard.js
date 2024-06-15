@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 const Dashboard = () => {
 
-  const {isAuthenticated, user} = useContext(Context);
+  const {isAuthenticated, admin} = useContext(Context);
 
   const [appointments, setAppointments] = useState([]);
   const [doctors, setDoctors] = useState([]);
@@ -85,7 +85,7 @@ const Dashboard = () => {
                 <div>
                   <p>Hello ,</p>
                   <h5>
-                    {user && `${user.firstName} ${user.lastName}`}
+                    {admin && `${admin.firstName} ${admin.lastName}`}
                   </h5>
                 </div>
 
