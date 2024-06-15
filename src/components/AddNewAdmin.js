@@ -26,7 +26,7 @@ const AddNewAdmin = () => {
 
     try {
       const response = await axios.post(
-        "https://hospital-management-system-backend-edeu.onrender.com/api/v1/user/admin/addnew", 
+        "/api/v1/user/admin/addnew", 
         { firstName, lastName, email, phone, uid, dob, gender, password }, 
         {
           withCredentials : true, 

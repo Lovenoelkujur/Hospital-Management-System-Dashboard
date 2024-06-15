@@ -13,7 +13,7 @@ const Messages = () => {
     const fetchMessages = async() => {
       try {
         const { data } = await axios.get(
-          "https://hospital-management-system-backend-edeu.onrender.com/api/v1/message/getall", 
+          "/api/v1/message/getall", 
           {withCredentials : true}
         );
 
