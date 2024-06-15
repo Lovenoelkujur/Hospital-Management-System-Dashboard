@@ -31,6 +31,9 @@ const Login = () => {
         toast.success(response.data.message);
         setIsAuthenticated(true);
         navigateTo("/");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
       
     } 
     catch (error) {

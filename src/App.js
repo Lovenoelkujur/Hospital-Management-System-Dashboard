@@ -15,7 +15,7 @@ import "./App.css";
 
 const App = () => {
 
-  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, admin, setAdmin} = useContext(Context);
 
   useEffect(() => {
 
@@ -24,11 +24,11 @@ const App = () => {
         const response = await axios.get("/api/v1/user/admin/me", 
         {withCredentials : true});
         setIsAuthenticated(true);
-        setUser(response.data.user);
+        setAdmin(response.data.user);
       } 
       catch (error) {
         setIsAuthenticated(false);
-        setUser({});
+        setAdmin({});
       }
     };
     fetchUser();
