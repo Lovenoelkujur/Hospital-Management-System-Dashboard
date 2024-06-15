@@ -20,7 +20,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
+      await axios.post(
         "/api/v1/user/login", 
         {email, password, confirmPassword, role : "Admin"}, 
         {
@@ -28,12 +28,14 @@ const Login = () => {
           headers : {"Content-Type" : "application/json"}
         }
       )
-        toast.success(response.data.message);
+      .then((res) => {
+        toast.success(res.data.message);
         setIsAuthenticated(true);
         navigateTo("/");
         setEmail("");
         setPassword("");
         setConfirmPassword("");
+      });
       
     } 
     catch (error) {
