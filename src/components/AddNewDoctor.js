@@ -69,7 +69,7 @@ const AddNewDoctor = () => {
       formData.append("docAvatar", docAvatar);
 
       await axios.post(
-        "/api/v1/user/doctor/addnew", 
+        "https://hospital-management-system-backend-edeu.onrender.com/api/v1/user/doctor/addnew", 
         formData, 
         {
           withCredentials : true, 

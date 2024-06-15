@@ -21,7 +21,7 @@ const App = () => {
 
     const fetchUser = async() => {
       try {
-        const response = await axios.get("/api/v1/user/admin/me",
+        const response = await axios.get("https://hospital-management-system-backend-edeu.onrender.com/api/v1/user/admin/me",
         {withCredentials : true});
         setIsAuthenticated(true);
         setAdmin(response.data.user);
