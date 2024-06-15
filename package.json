@@ -14,7 +14,7 @@
     "react-scripts": "5.0.1",
     "react-toastify": "^10.0.5",
     "web-vitals": "^2.1.4",
-    "proxy": "http://localhost:3000"
+    "proxy": "https://hospital-management-system-backend-edeu.onrender.com"
     
   },
   "scripts": {
