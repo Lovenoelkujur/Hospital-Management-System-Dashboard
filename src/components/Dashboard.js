@@ -24,6 +24,7 @@ const Dashboard = () => {
       } 
       catch (error) {
         setAppointments([]);
+        toast.error(error.response.data.message);
       }
     };
 
@@ -40,7 +41,7 @@ const Dashboard = () => {
         setDoctors(data.doctor); 
       } 
       catch (error) {
-        console.log("Some Error Occured while fetching appointments !",error);
+        toast.error(error.response.data.message);
       }
     };
 
