@@ -24,7 +24,6 @@ const Dashboard = () => {
       } 
       catch (error) {
         setAppointments([]);
-        console.log("Some Error Occured while fetching appointments !",error);
       }
     };
 
