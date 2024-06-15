@@ -37,7 +37,7 @@ const AddNewDoctor = () => {
   const navigateTo = useNavigate();
 
   // Render Doctor Avatar
-  const handleAvatar = async(e) => {
+  const handleAvatar = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
 
@@ -68,16 +68,27 @@ const AddNewDoctor = () => {
       formData.append("doctorDepartment", doctorDepartment);
       formData.append("docAvatar", docAvatar);
 
-      const response = await axios.post(
+      await axios.post(
         "/api/v1/user/doctor/addnew", 
         formData, 
         {
           withCredentials : true, 
           headers : {"Content-Type" : "multipart/form-data"},
         }
-      );
-      toast.success(response.data.message);
-      navigateTo("/");
+      )
+      .then((res) => {
+        toast.success(res.data.message);
+        navigateTo("/");
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPhone("");
+        setUid("");
+        setDob("");
+        setGender("");
+        setPassword("");
+
+      })
     } 
     catch (error) {
       toast.error(error.response.data.message);
@@ -162,10 +173,10 @@ const AddNewDoctor = () => {
                 >
                   <option value="">Select Department</option>
                   {
-                    departmentsArray.map((element, index) => {
+                    departmentsArray.map((depart, index) => {
                       return(
-                        <option value={element} key={index}>
-                          {element}
+                        <option value={depart} key={index}>
+                          {depart}
                         </option>
                       );
                     })

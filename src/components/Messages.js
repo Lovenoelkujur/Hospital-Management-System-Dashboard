@@ -20,7 +20,7 @@ const Messages = () => {
         setMessages(data.messages);
       } 
       catch (error) {
-        console.log("Error Occured while Fetching messages !", error);
+        console.log(error.respose.data.message);
       }
     }
 
@@ -37,9 +37,9 @@ const Messages = () => {
       <h1>MESSAGES</h1>
       <div className='banner'>
         {
-          messages && messages.length > 0 ? (messages.map(element => {
+          messages && messages.length > 0 ? (messages.map((element) => {
             return(
-              <div className='card'>
+              <div className='card' key={element._id}>
                 <div className='details'>
                   <p>
                     First Name : <span>{element.firstName}</span>

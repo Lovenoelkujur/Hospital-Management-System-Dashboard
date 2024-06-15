@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 const AddNewAdmin = () => {
 
-  const {isAuthenticated } = useContext(Context);
+  const {isAuthenticated, setIsAuthenticated } = useContext(Context);
 
   // State
   const [firstName, setFirstName] = useState("");
@@ -25,21 +25,32 @@ const AddNewAdmin = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
+      await axios.post(
         "/api/v1/user/admin/addnew", 
         { firstName, lastName, email, phone, uid, dob, gender, password }, 
         {
           withCredentials : true, 
           headers : {"Content-Type" : "application/json"}
         }
-      );
-      toast.success(response.data.message);
-      navigateTo("/");
+      )
+      .then((res) => {
+        toast.success(res.data.message);
+        setIsAuthenticated(true);
+        navigateTo("/");
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPhone("");
+        setUid("");
+        setDob("");
+        setGender("");
+        setPassword("");
+
+      });
     } 
     catch (error) {
       toast.error(error.response.data.message);
     }
-
   };
 
   if(!isAuthenticated){
